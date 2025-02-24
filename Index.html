@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Website Quote</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 600px; margin: auto; }
+    textarea, input, button { width: 100%; padding: 10px; font-size: 16px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Portfolio Website</h1>
+    <p>Describe what you need, and we will review your request.</p>
+    <form id="quoteForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="description" placeholder="Describe your website requirements..." required></textarea>
+      <button type="button" onclick="submitRequest()">Submit Request</button>
+    </form>
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </div>
+
+  <script>
+    function submitRequest() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const description = document.getElementById('description').value;
+
+      if (name && email && description) {
+        document.getElementById('result').innerText = 
+          "Thank you, " + name + "! Your request has been received. We will contact you with a custom quote.";
+        
+        // Store the data for your reference (you need backend implementation for actual storage)
+        console.log("User Request:", { name, email, description });
+      } else {
+        document.getElementById('result').innerText = "Please fill all fields before submitting.";
+      }
+    }
+  </script>
+</body>
+</html>
